@@ -1,0 +1,174 @@
+[
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/users"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "body": [
+        {
+          "id": 1,
+          "name": "John Doe",
+          "email": "john.doe@example.com"
+        },
+        {
+          "id": 2,
+          "name": "Jane Smith",
+          "email": "jane.smith@example.com"
+        }
+      ],
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/products"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "body": [
+        {
+          "id": 1,
+          "name": "Laptop",
+          "price": 1200.99,
+          "description": "High-performance laptop",
+          "stock": 50
+        },
+        {
+          "id": 2,
+          "name": "Smartphone",
+          "price": 699.99,
+          "description": "Latest model smartphone",
+          "stock": 150
+        }
+      ],
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/products/1"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "body": {
+        "id": 1,
+        "name": "Laptop",
+        "price": 1200.99,
+        "description": "High-performance laptop",
+        "stock": 50
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "POST",
+      "path": "/carts",
+      "body": {
+        "userId": 1,
+        "productId": 1,
+        "quantity": 1
+      }
+    },
+    "httpResponse": {
+      "statusCode": 201,
+      "body": {
+        "cartId": 101,
+        "userId": 1,
+        "items": [
+          {
+            "productId": 1,
+            "quantity": 1
+          }
+        ]
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/carts/101"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "body": {
+        "cartId": 101,
+        "userId": 1,
+        "items": [
+          {
+            "productId": 1,
+            "quantity": 1
+          }
+        ]
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "POST",
+      "path": "/orders",
+      "body": {
+        "cartId": 101,
+        "address": "123 Main St, Anytown, USA"
+      }
+    },
+    "httpResponse": {
+      "statusCode": 201,
+      "body": {
+        "orderId": 1001,
+        "userId": 1,
+        "items": [
+          {
+            "productId": 1,
+            "quantity": 1
+          }
+        ],
+        "address": "123 Main St, Anytown, USA",
+        "status": "Processing"
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/orders/1001"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "body": {
+        "orderId": 1001,
+        "userId": 1,
+        "items": [
+          {
+            "productId": 1,
+            "quantity": 1
+          }
+        ],
+        "address": "123 Main St, Anytown, USA",
+        "status": "Processing"
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  }
+]
